@@ -1,3 +1,4 @@
+#This code does not use GPU
 println("Use NN to solve SIR ODE model")
 using ComponentArrays, Lux, DiffEqFlux, OrdinaryDiffEq 
 using Optimization, OptimizationOptimJL, OptimizationOptimisers
