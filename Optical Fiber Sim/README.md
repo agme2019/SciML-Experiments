@@ -97,6 +97,40 @@ results_df = batch_design_fibers(design_requirements, output_file="batch_results
 
 The ML approach shows excellent agreement with traditional optimization methods, as demonstrated in the comparison plots. The ML models can predict fiber parameters with high accuracy while offering significant speed advantages for batch processing.
 
+## Model selection
+The ML code saves all the trained models, not just the best one. Looking at the `save_models` function in `fiber_ml_model.py`, it saves the entire dictionary of models along with the associated metadata:
+
+```python
+def save_models(models, scaler_X, scaler_y, feature_names, target_names, filename='fiber_ml_models.pkl'):
+    """Save the trained models and associated metadata."""
+    model_data = {
+        'models': models,
+        'scaler_X': scaler_X,
+        'scaler_y': scaler_y,
+        'feature_names': feature_names,
+        'target_names': target_names
+    }
+    
+    joblib.dump(model_data, filename)
+    print(f"Models saved to {filename}")
+```
+
+The `models` dictionary contains all the trained models:
+- Random Forest (`'random_forest'`)
+- Gradient Boosting (`'gradient_boosting'`)
+- Neural Network (`'neural_network'`)
+
+When using the model for prediction later, the code currently defaults to using the Neural Network model as seen in the `design_fiber_with_ml` function:
+
+```python
+# Select the best model
+best_model_name = "neural_network"  # This could be configured
+```
+
+However, since all models are saved, you could modify the code to select any of the models or to automatically use the best-performing model based on the evaluation metrics if desired.
+Note : Based on the uploaded Jupyter notebook, the gradient boosting works the best. So select that.
+
+
 ## Getting Started
 
 1. Clone the repository
