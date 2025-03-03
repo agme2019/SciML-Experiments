@@ -112,4 +112,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you use this code in your research, please cite:
 
-[Add citation information]
+[Citation](https://github.com/agme2019/SciML-Experiments/tree/main/Optical%20Fiber%20Sim)
