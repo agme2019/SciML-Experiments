@@ -1,5 +1,5 @@
 # SciML-Experiments
-Examples on scientific machine learning with Julia, Python.
+Examples on scientific machine learning
 
 **Project-1** : 
 **SIR model**: 
